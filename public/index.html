@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1" crossorigin="anonymous"
+    >
+
+    <style>
+        .list {
+            list-style: none;
+        }
+    </style>
+
+    <!-- The core Firebase JS SDK is always required and must be listed first -->
+    <script src="https://www.gstatic.com/firebasejs/8.2.4/firebase-app.js"></script>
+
+    <!-- !!!!!!!!!! CDN found in this link : https://firebase.google.com/docs/web/setup#available-libraries !!!!!!!!! -->
+    <script src="https://www.gstatic.com/firebasejs/8.2.4/firebase-auth.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.2.4/firebase-firestore.js"></script>
+
+    <!-- TODO: Add SDKs for Firebase products that you want to use
+     https://firebase.google.com/docs/web/setup#available-libraries -->
+
+    <script>
+        // Your web app's Firebase configuration
+        var firebaseConfig = {
+            apiKey: 'Currently Hidden',
+            authDomain: "introduction-app-vanilla-js.firebaseapp.com",
+            projectId: "introduction-app-vanilla-js",
+            storageBucket: "introduction-app-vanilla-js.appspot.com",
+            messagingSenderId: "329226016949",
+            appId: "Currently Hidden"
+        };
+        // Initialize Firebase
+        firebase.initializeApp(firebaseConfig);
+    </script>
+
+    <!-- defer is the same than putting the script tag before the end of body, the script element will load after the element in body has loaded    -->
+    <script src="app.js" defer></script>
+</head>
+
+<body>
+    <h1 class="text-center mt-2">Introduction Firebase using Vanilla Javascript</h1>
+
+    <section id="whenSignedOut" class="text-center mt-5">
+        <button id="signInBtn" class="btn btn-primary">Sign in with Google</button>
+    </section>
+
+    <section id="whenSignedIn" hidden="true" class="text-center mt-5">
+        <div id="userDetails"></div>
+        <button id="signOutBtn" class="btn btn-primary">Sign Out</button>
+    </section>
+
+    <hr>
+
+    <section class="text-center mt-5" id="secondTwo" hidden="true">
+        <h2>My Firestore Things</h2>
+        <ul id="thingsList">
+        </ul>
+        <form id="form">
+            <input type="text" placeholder="Your message" id="message" name="message" class="form-control" style="width: 60%; margin: 10px auto;" />  <br />
+            <button id="createThing" class="btn btn-success" type="submit">Submit message</button>
+        </form>
+    </section>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-ygbV9kiqUc6oa4msXn9868pTtWMgiQaeYH7/t7LECLbyPA2x65Kgf80OJFdroafW"
+        crossorigin="anonymous"></script>
+</body>
+
+</html>

@@ -1,0 +1,1 @@
+This project is an introduction to firebase (database and authentification) using vanilla javascript. 
