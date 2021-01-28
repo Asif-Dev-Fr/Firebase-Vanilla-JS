@@ -1,5 +1,5 @@
 // SDK = Software Development Kit : 
-console.log(firebase)
+// console.log(firebase)
 
 // Start auth : 
 const auth = firebase.auth();
@@ -24,6 +24,7 @@ signOutBtn.onclick = () => auth.signOut();
 // logic to see if auth : 
 auth.onAuthStateChanged(user => {
     if(user) {
+        console.log(user)
         whenSignedIn.hidden = false;
         whenSignedOut.hidden = true;
         userDetails.innerHTML = `
@@ -87,13 +88,44 @@ auth.onAuthStateChanged(user => {
                 thingsList.innerHTML = items.join('');
             });
 
-
-        
-
-
     } else {
         // Unsubscribe when the user signs out
         unsubscribe && unsubscribe();
         secondTwo.hidden = true;
     }
 });
+
+// Register 
+
+let register = document.getElementById('registerWithEmail');
+let registerForm = document.getElementById('registerForm');
+let authEmail = document.getElementById('authEmail');
+
+register.addEventListener("click", () => {
+    registerForm.hidden = false;
+});
+
+registerForm.onsubmit = (e) => {
+    e.preventDefault();
+
+    let userName = document.getElementById('userName').value;
+    let userEmail = document.getElementById('userEmail').value;
+    let userPassword = document.getElementById('userPassword').value;
+
+    //Create User with Email and Password
+    firebase.auth().createUserWithEmailAndPassword(userEmail, userPassword).catch(function(error) {
+    // Handle Errors here.
+    var errorCode = error.code;
+    var errorMessage = error.message;
+    console.log(errorCode);
+    console.log(errorMessage);
+  });
+
+    if(user) {
+        authEmail.hidden = true;
+        registerForm.hidden = true;
+    }
+
+
+}
+
