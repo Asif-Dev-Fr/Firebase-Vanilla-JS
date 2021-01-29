@@ -120,12 +120,5 @@ registerForm.onsubmit = (e) => {
     console.log(errorCode);
     console.log(errorMessage);
   });
-
-    if(user) {
-        authEmail.hidden = true;
-        registerForm.hidden = true;
-    }
-
-
 }
 
